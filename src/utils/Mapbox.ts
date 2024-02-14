@@ -11,7 +11,8 @@ export const initializeMapbox = () => {
     container: 'mapbox',
     style: 'mapbox://styles/jakobvar/clsltaizq001l01pk0511f7ne',
     zoom: 1, // Standard-Zoom-Leve
-    center: [0, 0], // Längengrad, Breitengrad von Berlin
+    center: [0, 0], // center default
+    minZoom: 1, // Minimal erlaubter Zoom-Level, um aus der Ansicht der ganzen Welt nicht weiter herauszuzoomen
   });
 
   const locations = [
@@ -20,27 +21,27 @@ export const initializeMapbox = () => {
       info: 'Informationen über Australien',
       googleMapsLink: 'https://www.google.com/maps?q=-25.2744,133.7751',
       image:
-        'https://uploads-ssl.webflow.com/655f64b940de048ead148f50/65b3f70072f408c610863c11_MapPin.png',
+        'https://uploads-ssl.webflow.com/65ca143babb87719f1ed2239/65cccc0f3328ca876509b7a6_Pin.png',
     }, // Australien
     {
       coordinates: [22.9375, -30.5595],
       image:
-        'https://uploads-ssl.webflow.com/655f64b940de048ead148f50/65b3f70072f408c610863c11_MapPin.png',
+        'https://uploads-ssl.webflow.com/65ca143babb87719f1ed2239/65cccc0f3328ca876509b7a6_Pin.png',
     }, // Südafrika
     {
       coordinates: [104.1954, 35.8617],
       image:
-        'https://uploads-ssl.webflow.com/655f64b940de048ead148f50/65b3f70072f408c610863c11_MapPin.png',
+        'https://uploads-ssl.webflow.com/65ca143babb87719f1ed2239/65cccc0f3328ca876509b7a6_Pin.png',
     }, // China
     {
       coordinates: [-102.5528, 23.6345],
       image:
-        'https://uploads-ssl.webflow.com/655f64b940de048ead148f50/65b3f70072f408c610863c11_MapPin.png',
+        'https://uploads-ssl.webflow.com/65ca143babb87719f1ed2239/65cccc0f3328ca876509b7a6_Pin.png',
     }, // Mexiko
     {
       coordinates: [-95.7129, 37.0902],
       image:
-        'https://uploads-ssl.webflow.com/655f64b940de048ead148f50/65b3f70072f408c610863c11_MapPin.png',
+        'https://uploads-ssl.webflow.com/65ca143babb87719f1ed2239/65cccc0f3328ca876509b7a6_Pin.png',
     }, // USA
   ];
 
