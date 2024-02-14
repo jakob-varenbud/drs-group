@@ -1,3 +1,4 @@
+import 'src/style.css';
 //Mapbox
 export const initializeMapbox = () => {
   mapboxgl.accessToken =
@@ -62,7 +63,8 @@ export const initializeMapbox = () => {
 
     // Erstelle das Popup
     const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
-            <p>${loc.info}</p>
+            <h6>DRS Group</h6>
+            <p class='popup-p'> Am Sandtorkai 58, D-20457 HamburgEmail: info@drs-group.com </p>
             <a href="${loc.googleMapsLink}" target="_blank">In Google Maps anzeigen</a>
         `);
 
