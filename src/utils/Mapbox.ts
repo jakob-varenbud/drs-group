@@ -10,7 +10,8 @@ export const initializeMapbox = () => {
   const map = new mapboxgl.Map({
     container: 'mapbox',
     style: 'mapbox://styles/jakobvar/clsltaizq001l01pk0511f7ne',
-    zoom: 1, // Standard-Zoom-Level
+    zoom: 1, // Standard-Zoom-Leve
+    center: [0, 0], // Längengrad, Breitengrad von Berlin
   });
 
   const locations = [
@@ -66,19 +67,5 @@ export const initializeMapbox = () => {
       .setLngLat(loc.coordinates)
       .setPopup(popup)
       .addTo(map);
-  });
-  map.on('load', function () {
-    // Passt die Kartenansicht an, um alle Marker einzuschließen
-    const bounds = locations.reduce(
-      function (bounds, loc) {
-        return bounds.extend(loc.coordinates);
-      },
-      new mapboxgl.LngLatBounds(locations[0].coordinates, locations[0].coordinates)
-    );
-
-    map.fitBounds(bounds, {
-      padding: 50, // Optionaler Abstand von den Rändern der Karte in Pixeln
-      maxZoom: isMobileDevice() ? 2 : 3, // Maximaler Zoom-Level
-    });
   });
 };
