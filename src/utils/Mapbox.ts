@@ -13,6 +13,9 @@ export const initializeMapbox = () => {
     zoom: 1, // Standard-Zoom-Leve
     center: [0, 0], // center default
     minZoom: 1, // Minimal erlaubter Zoom-Level, um aus der Ansicht der ganzen Welt nicht weiter herauszuzoomen
+    dragPan: false, // Deaktiviert das Verschieben der Karte
+    scrollZoom: true, // Optional: deaktiviert das Zoomen durch Scrollen, für vollständige Kontrolle
+    touchZoomRotate: true, // Deaktiviert Zoom und Rotation auf Touch-Geräten
   });
 
   const locations = [
@@ -50,8 +53,8 @@ export const initializeMapbox = () => {
     const el = document.createElement('div');
     el.className = 'custom-marker';
     el.style.backgroundImage = `url('${loc.image}')`;
-    el.style.width = isMobileDevice() ? '50px' : '85px';
-    el.style.height = isMobileDevice() ? '50px' : '85px';
+    el.style.width = isMobileDevice() ? '50px' : '50px';
+    el.style.height = isMobileDevice() ? '50px' : '50px';
     el.style.backgroundSize = 'cover';
     el.style.position = 'absolute';
     el.style.transform = 'translate(-50%, -100%)';
