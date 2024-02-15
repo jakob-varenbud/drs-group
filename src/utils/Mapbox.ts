@@ -11,9 +11,9 @@ export const initializeMapbox = () => {
   const map = new mapboxgl.Map({
     container: 'mapbox',
     style: 'mapbox://styles/jakobvar/clsltaizq001l01pk0511f7ne',
-    zoom: 1, // Standard-Zoom-Leve
-    center: [0, 0], // center default
-    minZoom: 1, // Minimal erlaubter Zoom-Level, um aus der Ansicht der ganzen Welt nicht weiter herauszuzoomen
+    zoom: 1.5, // Standard-Zoom-Leve
+    center: [0, 10], // center default
+    minZoom: 1.5, // Minimal erlaubter Zoom-Level, um aus der Ansicht der ganzen Welt nicht weiter herauszuzoomen
     dragPan: false, // Deaktiviert das Verschieben der Karte
     scrollZoom: true, // Optional: deaktiviert das Zoomen durch Scrollen, für vollständige Kontrolle
     touchZoomRotate: true, // Deaktiviert Zoom und Rotation auf Touch-Geräten
