@@ -15,20 +15,20 @@ export function startSequentielleAnimation() {
     {
       x: '0%', // Endposition (normalerweise ist das die Standardposition)
       opacity: 1, // Endet mit einer Opazität von 1
-      duration: 0.5,
+      duration: 0.75,
     }
   )
     // Verwende fromTo für #sub-hero, um leicht nach oben zu "sliden" und dabei an Opazität zu gewinnen
     .fromTo(
       '#sub-hero',
       {
-        y: '20px', // Startet leicht nach oben verschoben
+        y: '20%', // Startet leicht nach oben verschoben
         opacity: 0, // Startet mit einer Opazität von 0
       },
       {
-        y: '0px', // Bewegt sich zurück in die normale Position
+        y: '0%', // Bewegt sich zurück in die normale Position
         opacity: 1, // Endet mit einer Opazität von 1
-        duration: 0.5,
+        duration: 0.75,
         ease: 'power1.out',
       },
       '+=0.1' // Fügt eine Verzögerung nach der vorherigen Animation hinzu
@@ -55,3 +55,25 @@ export function siegelStagger() {
     stagger: 0.1, // Verzögerung zwischen den Animationen jedes Links
   });
 }
+
+export function carousel() {
+  gsap.fromTo(
+    '#modularplattform-component',
+    {
+      opacity: 0, // Startet mit einer Opazität von 0
+      y: 20, // Startet leicht nach unten verschoben (optional, falls gewünscht)
+    },
+    {
+      scrollTrigger: {
+        trigger: '#section_modularplattform', // Element, das die Animation auslöst
+        start: 'top center', // Startet die Animation, wenn der obere Rand von #section_modularplattform den Mittelpunkt des Viewports erreicht
+      },
+      y: 0, // Bewegt sich zurück in die normale Position
+      opacity: 1, // Endet mit einer Opazität von 1
+      duration: 0.75,
+      ease: 'power1.out',
+    }
+  );
+}
+
+export function 
