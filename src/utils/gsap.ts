@@ -76,4 +76,17 @@ export function carousel() {
   );
 }
 
-export function 
+export function timeline() {
+  gsap.to('#timeline-item', {
+    scrollTrigger: {
+      trigger: '#section_stats52', // Das Element, das den ScrollTrigger auslöst
+      start: 'top center', // Beginnt die Animation, wenn der obere Rand von #section_stats52 den Mittelpunkt des Viewports erreicht
+      end: 'bottom center', // Optional: Definiert das Ende der ScrollTrigger-Überwachung
+      toggleActions: 'play none none none', // Definiert, was passiert, wenn die ScrollTrigger-Bedingungen erfüllt sind
+    },
+    duration: 0.75,
+    opacity: 1,
+    ease: 'power1.inOut',
+    stagger: 0.2, // Verzögerung zwischen den Animationen jedes Elements
+  });
+}
