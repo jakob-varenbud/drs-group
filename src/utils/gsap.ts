@@ -5,10 +5,37 @@ gsap.registerPlugin(ScrollTrigger);
 export function startSequentielleAnimation() {
   const tl = gsap.timeline();
 
-  tl.to('#hero-heading', { duration: 0.5, opacity: 1 })
-    .to('#sub-hero', { duration: 0.5, opacity: 1 }, '+=0.1')
+  // Verwende fromTo für #hero-heading, um von links mit einer Opazität von 0 zu starten und dann ins Bild zu "fahren"
+  tl.fromTo(
+    '#hero-heading',
+    {
+      x: '-100%', // Startet von 100% links außerhalb des Bildschirms
+      opacity: 0, // Startet mit einer Opazität von 0
+    },
+    {
+      x: '0%', // Endposition (normalerweise ist das die Standardposition)
+      opacity: 1, // Endet mit einer Opazität von 1
+      duration: 0.5,
+    }
+  )
+    // Verwende fromTo für #sub-hero, um leicht nach oben zu "sliden" und dabei an Opazität zu gewinnen
+    .fromTo(
+      '#sub-hero',
+      {
+        y: '20px', // Startet leicht nach oben verschoben
+        opacity: 0, // Startet mit einer Opazität von 0
+      },
+      {
+        y: '0px', // Bewegt sich zurück in die normale Position
+        opacity: 1, // Endet mit einer Opazität von 1
+        duration: 0.5,
+        ease: 'power1.out',
+      },
+      '+=0.1' // Fügt eine Verzögerung nach der vorherigen Animation hinzu
+    )
+    // Fortsetzung deiner Timeline wie zuvor
     .to('#breadcrumb-component', { duration: 1, opacity: 1 }, '+=0.1')
-    .to('#navbar-component', { duration: 1, opacity: 1 }, '<')
+    .to('#navbar-component', { duration: 1, opacity: 1 }, '<') // Beginnt gleichzeitig mit der vorherigen Animation
     .to('#hero-video', { duration: 3, opacity: 1, ease: 'power2.out' }, '+=0.1');
 }
 
