@@ -31,12 +31,12 @@ export function startSequentielleAnimation() {
         duration: 0.75,
         ease: 'power1.out',
       },
-      '+=0.1' // Fügt eine Verzögerung nach der vorherigen Animation hinzu
+      '-=0.25' // Fügt eine Verzögerung nach der vorherigen Animation hinzu
     )
     // Fortsetzung deiner Timeline wie zuvor
-    .to('#breadcrumb-component', { duration: 1, opacity: 1 }, '+=0.1')
+    .to('#breadcrumb-component', { duration: 1, opacity: 1 }, '-=0.2')
     .to('#navbar-component', { duration: 1, opacity: 1 }, '<') // Beginnt gleichzeitig mit der vorherigen Animation
-    .to('#hero-video', { duration: 3, opacity: 1, ease: 'power2.out' }, '+=0.1');
+    .to('#hero-video', { duration: 3, opacity: 1, ease: 'power2.out' }, '-=0.2');
 }
 
 export function siegelStagger() {
@@ -107,6 +107,9 @@ export function sustainableSection() {
     y: 20,
     ease: 'power1.inOut',
   })
+    .from('#sustainable-component_heading-wrap', {
+      opacity: 0,
+    })
     .from(
       '#sustainable-component_lower-row',
       {
@@ -116,20 +119,29 @@ export function sustainableSection() {
       },
       '-=0.25'
     ) // Startet gleichzeitig mit der vorherigen Animation, mit einer leichten Überlappung
-    .to('#sustainable-component_upper-row', {
-      duration: 0.75,
+    .to('#sustainable-component_heading-wrap', {
       opacity: 1,
-      y: 0,
-      ease: 'power2.out', // Tippfehler korrigiert von 'power2.oupt' zu 'power2.out'
+      ease: 'power1.Out',
+      duration: 1,
     })
+    .to(
+      '#sustainable-component_upper-row',
+      {
+        duration: 2,
+        opacity: 1,
+        y: 0,
+        ease: 'power1.out', // Tippfehler korrigiert von 'power2.oupt' zu 'power2.out'
+      },
+      '-=0.25'
+    )
     .to(
       '#sustainable-component_lower-row',
       {
-        duration: 0.75,
+        duration: 3,
         opacity: 1,
         y: 0,
-        ease: 'power1.inOut',
+        ease: 'power1.Out',
       },
       '-=0.5'
-    ); // Beginnt, bevor die vorherige Animation endet, für eine fließende Übergang
+    );
 }
