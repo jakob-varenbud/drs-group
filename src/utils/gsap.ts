@@ -90,3 +90,46 @@ export function timeline() {
     stagger: 0.2, // Verzögerung zwischen den Animationen jedes Elements
   });
 }
+
+export function sustainableSection() {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#section_sustainable', // Das Element, das den ScrollTrigger auslöst
+      start: 'top center', // Startet die Animation, wenn der obere Rand von #section_sustainable den Mittelpunkt des Viewports erreicht
+      end: 'bottom center', // Optional: Definiert das Ende der ScrollTrigger-Überwachung
+      toggleActions: 'play none none none', // Definiert, was passiert, wenn die ScrollTrigger-Bedingungen erfüllt sind
+    },
+  });
+
+  // Füge Animationen zur Timeline hinzu
+  tl.from('#sustainable-component_upper-row', {
+    opacity: 0,
+    y: 20,
+    ease: 'power1.inOut',
+  })
+    .from(
+      '#sustainable-component_lower-row',
+      {
+        opacity: 0,
+        y: -20,
+        ease: 'power1.inOut',
+      },
+      '-=0.25'
+    ) // Startet gleichzeitig mit der vorherigen Animation, mit einer leichten Überlappung
+    .to('#sustainable-component_upper-row', {
+      duration: 0.75,
+      opacity: 1,
+      y: 0,
+      ease: 'power2.out', // Tippfehler korrigiert von 'power2.oupt' zu 'power2.out'
+    })
+    .to(
+      '#sustainable-component_lower-row',
+      {
+        duration: 0.75,
+        opacity: 1,
+        y: 0,
+        ease: 'power1.inOut',
+      },
+      '-=0.5'
+    ); // Beginnt, bevor die vorherige Animation endet, für eine fließende Übergang
+}
