@@ -34,9 +34,9 @@ export function startSequentielleAnimation() {
       '-=0.25' // Fügt eine Verzögerung nach der vorherigen Animation hinzu
     )
     // Fortsetzung deiner Timeline wie zuvor
-    .to('#breadcrumb-component', { duration: 1, opacity: 1 }, '-=0.2')
+    .to('#breadcrumb-component', { duration: 1, opacity: 1 }, '-=0.3')
     .to('#navbar-component', { duration: 1, opacity: 1 }, '<') // Beginnt gleichzeitig mit der vorherigen Animation
-    .to('#hero-video', { duration: 3, opacity: 1, ease: 'power2.out' }, '-=0.2');
+    .to('#hero-video', { duration: 3, opacity: 1, ease: 'power2.out' }, '-=0.3');
 }
 
 export function siegelStagger() {
