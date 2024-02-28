@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../src/style.css"],
-  "sourcesContent": [".mapboxgl-ctrl-attrib-inner {\n  display: none;\n}\n.mapboxgl-ctrl-logo {\n  display: none !important;\n}\n.mapboxgl-canvas {\n  left: 0;\n}\n.mapboxgl-popup-content {\n  background-color: #fff;\n  width: auto;\n  height: auto;\n  border-radius: 1rem;\n  cursor: pointer;\n}\n.popup-p {\n  font-weight: 100;\n  color: #7e8492;\n}\n"],
-  "mappings": ";AAAA,CAAC;AACC,WAAS;AACX;AACA,CAAC;AACC,WAAS;AACX;AACA,CAAC;AACC,QAAM;AACR;AACA,CAAC;AACC,oBAAkB;AAClB,SAAO;AACP,UAAQ;AACR,iBAAe;AACf,UAAQ;AACV;AACA,CAAC;AACC,eAAa;AACb,SAAO;AACT;",
-  "names": []
-}
