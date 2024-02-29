@@ -3,7 +3,7 @@ import { siegelStagger } from './utils/gsap';
 import { carousel } from './utils/gsap';
 import { timeline } from './utils/gsap';
 import { sustainableSection } from './utils/gsap';
-import { initializeMapbox } from './utils/Mapbox.ts';
+import { initializeMapbox } from './utils/Mapbox';
 
 document.addEventListener('DOMContentLoaded', () => {
   startSequentielleAnimation();

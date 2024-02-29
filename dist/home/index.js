@@ -6847,7 +6847,7 @@
     });
   };
 
-  // src/index.ts
+  // src/home/index.ts
   document.addEventListener("DOMContentLoaded", () => {
     startSequentielleAnimation();
     siegelStagger();
