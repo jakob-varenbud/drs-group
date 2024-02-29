@@ -1,18 +1,36 @@
 // Abrufen der Browsersprache des Benutzers
 const lang = navigator.language;
 
-// Überprüfen, ob der Cookie für die deutsche Umleitung nicht gesetzt ist UND die Sprache auf Deutsch eingestellt ist
-if (!$.cookie('language-de-redirect-cookie') && lang.indexOf('de') !== -1) {
-  const date = new Date(); // Erstellen eines neuen Datumsobjekts
-  date.setTime(date.getTime() + 24 * 60 * 60 * 1000); // Setzen des Ablaufdatums des Cookies auf 24 Stunden in der Zukunft
-  $.cookie('language-de-redirect-cookie', true, { expires: date }); // Setzen des Cookies, um zu verhindern, dass die Umleitung wiederholt wird
-  window.location.href = 'https://drs-staging1.webflow.io/de'; // Umleitung des Benutzers zur deutschen Homepage
-} else {
-  // Wenn die Browsersprache nicht Deutsch ist oder der Cookie bereits gesetzt wurde, leiten Sie den Benutzer zur englischen Seite um
-  if (!$.cookie('language-en-redirect-cookie')) {
-    const date = new Date(); // Erstellen eines neuen Datumsobjekts
-    date.setTime(date.getTime() + 24 * 60 * 60 * 1000); // Setzen des Ablaufdatums des Cookies auf 24 Stunden in der Zukunft
-    $.cookie('language-en-redirect-cookie', true, { expires: date }); // Setzen des Cookies für die englische Umleitung
+// Überprüfen, ob der deutsche Cookie gesetzt wurde
+if ($.cookie('language-de-redirect-cookie')) {
+  // Wenn der deutsche Cookie gesetzt wurde, dann entsprechend auf /de umleiten
+  window.location.href = 'https://drs-staging1.webflow.io/de';
+}
+// Überprüfen, ob der englische Cookie gesetzt wurde
+else if ($.cookie('language-en-redirect-cookie')) {
+  // Wenn der englische Cookie gesetzt wurde, dann entsprechend auf /en umleiten
+  window.location.href = 'https://drs-staging1.webflow.io/en';
+}
+// Wenn der Cookie nicht gesetzt wurde, dann anhand der navigator.language (const lang) prüfen und Redirection-Cookie setzen - ansonsten auf /en umleiten
+else {
+  // Prüfen, ob lang mit 'de' beginnt
+  if (lang.startsWith('de')) {
+    // Wenn ja, setzen des Cookies
+    const date = new Date();
+    date.setTime(date.getTime() + 24 * 60 * 60 * 1000); // Setzen des Ablaufdatums auf 24 Stunden in die Zukunft
+    $.cookie('language-de-redirect-cookie', true, { expires: date });
+    window.location.href = 'https://drs-staging1.webflow.io/de';
   }
-  window.location.href = 'https://drs-staging1.webflow.io/en'; // Umleitung des Benutzers zur englischen Homepage
+  // Prüfen, ob lang mit 'en' beginnt
+  else if (lang.startsWith('en')) {
+    // Wenn ja, setzen des Cookies
+    const date = new Date();
+    date.setTime(date.getTime() + 24 * 60 * 60 * 1000); // Setzen des Ablaufdatums auf 24 Stunden in die Zukunft
+    $.cookie('language-en-redirect-cookie', true, { expires: date });
+    window.location.href = 'https://drs-staging1.webflow.io/en';
+  }
+  // Wenn nichts davon zutrifft, auf /en umleiten
+  else {
+    window.location.href = 'https://drs-staging1.webflow.io/en';
+  }
 }
