@@ -6783,35 +6783,37 @@
     const map = new mapboxgl.Map({
       container: "mapbox",
       style: "mapbox://styles/jakobvar/cls0hl1nj00z501r42kewbyqu",
-      zoom: 1
-      // Standard-Zoom-Leve
+      zoom: 1,
+      // Standard-Zoom-Level
+      renderWorldCopies: false
+      // Verhindert das Anzeigen von Weltkopien
     });
     const locations = [
       {
         coordinates: [133.7751, -25.2744],
         info: "Informationen \xFCber Australien",
         googleMapsLink: "https://www.google.com/maps?q=-25.2744,133.7751",
-        image: "https://uploads-ssl.webflow.com/655f64b940de048ead148f50/65b3f70072f408c610863c11_MapPin.png"
+        image: "https://uploads-ssl.webflow.com/65ca143babb87719f1ed2239/65cccc0f3328ca876509b7a6_Pin.png"
       },
       // Australien
       {
         coordinates: [22.9375, -30.5595],
-        image: "https://uploads-ssl.webflow.com/655f64b940de048ead148f50/65b3f70072f408c610863c11_MapPin.png"
+        image: "https://uploads-ssl.webflow.com/65ca143babb87719f1ed2239/65cccc0f3328ca876509b7a6_Pin.png"
       },
       // Südafrika
       {
         coordinates: [104.1954, 35.8617],
-        image: "https://uploads-ssl.webflow.com/655f64b940de048ead148f50/65b3f70072f408c610863c11_MapPin.png"
+        image: "https://uploads-ssl.webflow.com/65ca143babb87719f1ed2239/65cccc0f3328ca876509b7a6_Pin.png"
       },
       // China
       {
         coordinates: [-102.5528, 23.6345],
-        image: "https://uploads-ssl.webflow.com/655f64b940de048ead148f50/65b3f70072f408c610863c11_MapPin.png"
+        image: "https://uploads-ssl.webflow.com/65ca143babb87719f1ed2239/65cccc0f3328ca876509b7a6_Pin.png"
       },
       // Mexiko
       {
         coordinates: [-95.7129, 37.0902],
-        image: "https://uploads-ssl.webflow.com/655f64b940de048ead148f50/65b3f70072f408c610863c11_MapPin.png"
+        image: "https://uploads-ssl.webflow.com/65ca143babb87719f1ed2239/65cccc0f3328ca876509b7a6_Pin.png"
       }
       // USA
     ];
@@ -6819,8 +6821,8 @@
       const el = document.createElement("div");
       el.className = "custom-marker";
       el.style.backgroundImage = `url('${loc.image}')`;
-      el.style.width = isMobileDevice() ? "50px" : "85px";
-      el.style.height = isMobileDevice() ? "50px" : "85px";
+      el.style.width = isMobileDevice() ? "50px" : "50px";
+      el.style.height = isMobileDevice() ? "50px" : "50px";
       el.style.backgroundSize = "cover";
       el.style.position = "absolute";
       el.style.transform = "translate(-50%, -100%)";
